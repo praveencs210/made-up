@@ -1,0 +1,523 @@
+/*Font-Jost*/
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/*Font-Scada*/
+@import url('https://fonts.googleapis.com/css2?family=Scada:wght@700&display=swap');
+/*Font-BankGothic*/
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+/*Custom-Font-Icons*/
+@import "font.css";
+
+:root {
+    --primary: #E10000;
+    --secondary: #333333;
+    --white: #FFFFFF;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: 'Jost', sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    background: var(--white);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+address {
+    font-style: normal;
+}
+
+img {
+    max-width: 100%;
+}
+
+fieldset {
+    border: 0;
+}
+
+button {
+    cursor: pointer;
+}
+
+.mr-1 {
+    margin-right: 1rem;
+}
+
+.tab {
+    color: #333;
+    display: block;
+    margin: auto;
+    position: relative;
+    margin-top: 4rem;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    overflow: auto;
+    overflow-x: hidden;
+    padding: 2rem 0;
+}
+
+.tab input[name="sections"] {
+    left: -9999px;
+    position: absolute;
+    top: -9999px;
+}
+
+.tab section label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+    margin: 1rem 0;
+    width: 200px;
+}
+
+.tab .tab-item label:before {
+    content: "\f054";
+    position: absolute;
+    top: 10px;
+    right: 0;
+    font: normal normal normal 14px/1 FontAwesome;
+}
+
+.tab section article {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 250px;
+    right: 0;
+}
+
+.tab input[name="sections"]:checked + label {
+    border-bottom: 1px solid #000000;
+}
+
+.tab input[name="sections"]:checked ~ article {
+    display: block;
+}
+
+/*Media Query*/
+
+@media screen and (min-width: 1025px) {
+    .mobile-header {
+        display: none;
+    }
+
+    .d-lg-none {
+        display: none;
+    }
+}
+
+/*i-Pad*/
+@media screen and (max-width: 1024px) {
+    .d-md-none {
+        display: none;
+    }
+
+    .header-nav-none,
+    .breadcrumb-list {
+        display: none !important;
+    }
+
+    .testimonials-container {
+        grid-template-columns: auto auto !important;
+    }
+
+    .btn-location {
+        transform: translate(-50%, 0);
+        left: 50%;
+        bottom: 0;
+    }
+
+    /*Collections*/
+    .collections {
+        padding: 5rem 2rem !important;
+    }
+
+    .collections-container {
+        display: flex;
+        flex-direction: row;
+        overflow: auto;
+        white-space: pre;
+    }
+
+    .collections-img {
+        width: 222px;
+        height: 318px;
+        max-width: inherit;
+    }
+
+    /*Mobile Header*/
+    .mobile-header {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin: 1rem 0;
+        padding: 1rem;
+    }
+
+    .mobile-header .fa {
+        color: #333333;
+    }
+
+    .mobile-header__container {
+        margin: 0 1rem;
+    }
+
+    .mobile-header__img {
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        object-fit: contain;
+        background: #ffd4d4;
+    }
+
+    .mobile-header__img.active {
+        border: 1px solid var(--primary);
+    }
+
+    .mobile-header__img.active:hover {
+        border: 1px solid var(--primary);
+    }
+
+    .mobile-header__title {
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 17px;
+        color: #333333;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .accordion {
+        display: none !important;
+    }
+}
+
+/*Mobile*/
+@media screen and (max-width: 767px) {
+    .d-sm-none {
+        display: none;
+    }
+
+    .mr-1 {
+        margin-right: 0;
+    }
+
+    /*Banner*/
+    .banner-img {
+        background-image: url("img/mobile-banner.png") !important;
+    }
+
+    .banner-text {
+        white-space: pre;
+    }
+
+    .banner .grid-container {
+        display: unset;
+    }
+
+    /*Testimonials*/
+    .testimonials-container {
+        display: unset !important;
+    }
+
+    /*Contact*/
+    .contact {
+        height: auto !important;
+    }
+
+    .contact-title {
+        padding: 2rem;
+    }
+
+    .contact-fieldset .contact-email {
+        width: 90%;
+        margin-bottom: 1rem;
+        margin-right: 0;
+    }
+
+    .btn-subscribe {
+        width: 90%;
+    }
+
+    /*Footer*/
+    .footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer-list__link,
+    .footer-list__address {
+        text-align: center;
+    }
+
+    .footer-list__logo {
+        margin: 3rem 0;
+    }
+
+    /*Tab*/
+    .tab {
+        min-height: unset;
+        height: auto;
+        padding: 0;
+        padding-bottom: 2rem;
+    }
+
+    .tab section label {
+        width: 100%;
+        margin: 0 0 3rem 0 !important;
+    }
+
+    .tab .username {
+        display: unset;
+    }
+
+    .tab-heading {
+        display: none;
+    }
+
+    .tab-item {
+        display: unset;
+    }
+
+    .tab-content {
+        padding: 0;
+        border: none;
+    }
+
+    .tab .submit {
+        width: 100%;
+    }
+
+    .tab section article {
+        position: unset;
+    }
+
+    .section-profile {
+        margin: 0 1.5rem !important;
+    }
+
+    .tab__order-content .tab__sub-title,
+    .tab__order-content .tab-title {
+        font-size: 1rem;
+    }
+
+    .tab .btn__submit-container {
+        margin-bottom: 8rem;
+    }
+
+    .tab .tab-item label:before {
+        content: "\f078";
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .mobile-header__img {
+        height: 3rem;
+        width: 3rem;
+        font-size: 0.9rem;
+    }
+
+    .mobile-header__title {
+        font-size: 0.9rem;
+    }
+
+    .testimonials-card {
+        padding: 2.5rem 2rem !important;
+    }
+
+    .testimonials-star {
+        margin-left: 0.9rem !important;
+        margin-right: 0.5rem !important;
+    }
+}
+
+
+
+
+
+
+
+
+
+.menu-toggle {
+    display: inline-block;
+    padding: .75em 15px;
+    line-height: 1em;
+    font-size: 1em;
+    color: #333;
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus {
+    color: #c00;
+}
+
+/*
+  Offscreen menu styling
+  - Default styles + mobile first
+*/
+.main-menu {
+    position: absolute;
+    display: none;
+    /*left: -200px; !* push off the screen to the left for future animation *!*/
+    top: 0;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: visible;
+    transition: left 0.3s ease,
+    box-shadow 0.3s ease;
+    z-index: 999;
+    width: 80%;
+}
+
+.hamburger-list hr{
+    margin: 3rem 2rem;
+}
+
+.main-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 5rem;
+    /* Hide shadow w/ -8px while 'closed' */
+    -webkit-box-shadow: -8px 0 8px rgba(0,0,0,.5);
+    -moz-box-shadow: -8px 0 8px rgba(0,0,0,.5);
+    box-shadow: -8px 0 8px rgba(0,0,0,.5);
+    min-height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 1);
+}
+
+.hamburger-link.active{
+    color: var(--primary);
+}
+
+/*
+  Generic style for ALL hamburger menu links
+*/
+.main-menu a {
+    display: block;
+    padding: .75em 15px;
+    text-decoration: none;
+    font-size: 1.6rem;
+    line-height: 2.3rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: #9B9B9B;
+}
+
+
+/*
+  Close button positioning
+  - Other styles come from `.main-menu a`
+*/
+.main-menu .menu-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+/*
+  =======================================
+  On small devices, allow it to toggle...
+  =======================================
+*/
+
+/*
+  Opening hamburger menu!
+  - Using `:target` for non-JavaScript
+  - `[aria-expanded]` will be used if/when JavaScript is added to improve interaction, though it's completely optional.
+*/
+.main-menu:target,
+.main-menu[aria-expanded="true"] {
+    display: block;
+    right: 0; /* slide from -200px to the left edge at 0 */
+    outline: none;
+    /* fix box-shadow so it shows now */
+    -moz-box-shadow: 3px 0 12px rgba(0,0,0,.25);
+    -webkit-box-shadow: 3px 0 12px rgba(0,0,0,.25);
+    box-shadow: 3px 0 12px rgba(0,0,0,.25);
+}
+
+/*
+  Close menu button
+  - Make sure it's on top!
+  - Basically, when `.main-menu` is the target of the click, get its child `.menu-close` link
+*/
+.main-menu:target .menu-close,
+.main-menu[aria-expanded="true"] .menu-close {
+    z-index: 1001;
+}
+
+/*
+  Hamburger menu list
+  - Make sure it's on top!
+  - Basically, when `.main-menu` is the target of the click, get its child `<ul>`
+*/
+.main-menu:target ul,
+.main-menu[aria-expanded="true"] ul {
+    position: relative;
+    z-index: 1000;
+}
+
+/*
+  Backdrop
+  - Show backdrop
+  - Basically, when `.main-menu` is the target of the click, get its sibling `.backdrop`
+  - Note: we could use `.main-menu:target:after`, but
+ it wouldn't be clickable.
+*/
+.main-menu:target + .backdrop,
+.main-menu[aria-expanded="true"] + .backdrop{
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 998;
+    cursor: default;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/*
+  ======================================================
+  If CSS supports `fixed`, like all good modern browsers
+  ======================================================
+*/
+@supports (position: fixed) {
+    /*
+      Allow backdrop to stay fixed and not "scroll"
+    */
+    .main-menu,
+    .main-menu:target + .backdrop,
+    .main-menu[aria-expanded="true"] + .backdrop {
+        position: fixed;
+    }
+}
+
+
