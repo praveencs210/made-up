@@ -227,7 +227,6 @@ button {
     }
 }
 
-
 /*Media Query*/
 @media screen and (min-width: 1025px) {
     .mobile-header {
@@ -240,6 +239,25 @@ button {
 }
 
 /*i-Pad*/
+
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: portrait) {
+    .tab {
+        min-height: 80vh;
+    }
+}
+
+@media only screen
+and (min-device-width: 1024px)
+and (max-device-width: 1366px)
+and (orientation: portrait) {
+    .tab {
+        min-height: 70vh;
+    }
+}
+
 @media screen and (max-width: 1024px) {
     .d-md-none {
         display: none;

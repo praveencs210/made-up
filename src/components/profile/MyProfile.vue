@@ -1,6 +1,6 @@
 <template>
   <section class="tab-item" id="section2">
-    <input class="tab-radio" type="radio" name="sections" id="option2">
+    <input class="tab-radio" type="radio" name="sections" id="option2" checked>
     <label for="option2">
       <h1 class="tab-title">My Profile</h1>
       <p class="tab__sub-title">Already have 12 orders</p>
