@@ -1,15 +1,16 @@
 <template>
   <header class="header">
     <!--Logo-->
-    <a href="#" class="logo">
+    <router-link class="logo" to="/">
       <h1 class="logo-heading">
         Made Up
       </h1>
-    </a>
-
+    </router-link>
     <!--Nav Link-->
     <ul class="nav-list header-nav-none">
-      <li class="nav-item"><a class="nav-link active" href="#">For Me</a></li>
+      <li class="nav-item">
+        <router-link class="nav-link" to="/my-profile">For Me</router-link>
+      </li>
       <li class="nav-item"><a class="nav-link" href="#">Jeans</a></li>
       <li class="nav-item"><a class="nav-link" href="#">Shirts</a></li>
       <li class="nav-item"><a class="nav-link" href="#">T-Shirts</a></li>
@@ -24,7 +25,7 @@
         <li class="nav-item"><a class="nav-link" href="#"><i class="icon icon-Path-16"></i></a></li>
         <li class="nav-item"><a class="nav-link" href="#"><i class="icon icon-Path-19"></i></a></li>
         <li class="nav-item d-md-none"><a class="nav-link" href="#"><i class="icon icon-Path-35"></i></a></li>
-        <li class="nav-item d-md-none"><a class="nav-link" href="#"><i class="icon icon-Path-41"></i></a></li>
+        <li class="nav-item d-md-none"><router-link to="/my-profile" class="nav-link"><i class="icon icon-Path-41"></i></router-link></li>
 
         <li class="nav-item">
           <ul>
@@ -49,7 +50,7 @@
 
                   <h2 id="main-menu-heading" class="sr-only">Main menu</h2>
                   <ul class="hamburger-list" aria-labelledby="main-menu-heading">
-                    <li class="hamburger-item"><a class="hamburger-link active" href="#">My Profile</a></li>
+                    <li class="hamburger-item"><router-link class="hamburger-link active" to="/my-profile">My Profile</router-link></li>
                     <li class="hamburger-item"><a class="hamburger-link " href="#"> My Wishlist</a></li>
                     <li class="hamburger-item"><a class="hamburger-link " href="#">My Orders</a></li>
                     <li class="hamburger-item"><a class="hamburger-link " href="#">My Addresses</a></li>
@@ -70,10 +71,7 @@
           </ul>
         </li>
       </ul>
-
-
     </nav>
-
     <!--Hamburger Menu-->
   </header>
 </template>

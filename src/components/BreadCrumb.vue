@@ -1,7 +1,9 @@
 <template>
   <ul class="breadcrumb-list">
     <li class="breadcrumb-item">
-      <a class="breadcrumb-link" href="#">Home</a>
+      <router-link class="breadcrumb-link" to="/">
+        Home
+      </router-link>
     </li>
     <li class="breadcrumb-item">/</li>
     <li class="breadcrumb-item">

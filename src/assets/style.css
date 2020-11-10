@@ -43,6 +43,11 @@ a {
     text-decoration: none;
 }
 
+a.router-link-active.router-link-exact-active.nav-link,
+a.breadcrumb-link:hover {
+    color: var(--primary);
+}
+
 address {
     font-style: normal;
 }
@@ -115,8 +120,115 @@ button {
     display: block;
 }
 
-/*Media Query*/
+/*Mobile Menu*/
+.menu-toggle {
+    display: inline-block;
+    padding: .75em 15px;
+    line-height: 1em;
+    font-size: 1em;
+    color: #333;
+}
 
+.menu-toggle:hover,
+.menu-toggle:focus {
+    color: #c00;
+}
+
+.main-menu {
+    position: absolute;
+    display: none;
+    top: 0;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: visible;
+    transition: left 0.3s ease,
+    box-shadow 0.3s ease;
+    z-index: 999;
+    width: 80%;
+}
+
+.hamburger-list hr {
+    margin: 3rem 2rem;
+}
+
+.main-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 5rem;
+    -webkit-box-shadow: -8px 0 8px rgba(0, 0, 0, .5);
+    -moz-box-shadow: -8px 0 8px rgba(0, 0, 0, .5);
+    box-shadow: -8px 0 8px rgba(0, 0, 0, .5);
+    min-height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 1);
+}
+
+.hamburger-link.active {
+    color: var(--primary);
+}
+
+.main-menu a {
+    display: block;
+    padding: .75em 15px;
+    text-decoration: none;
+    font-size: 1.6rem;
+    line-height: 2.3rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: #9B9B9B;
+}
+
+.main-menu .menu-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.main-menu:target,
+.main-menu[aria-expanded="true"] {
+    display: block;
+    right: 0;
+    outline: none;
+    -moz-box-shadow: 3px 0 12px rgba(0, 0, 0, .25);
+    -webkit-box-shadow: 3px 0 12px rgba(0, 0, 0, .25);
+    box-shadow: 3px 0 12px rgba(0, 0, 0, .25);
+}
+
+.main-menu:target .menu-close,
+.main-menu[aria-expanded="true"] .menu-close {
+    z-index: 1001;
+}
+
+.main-menu:target ul,
+.main-menu[aria-expanded="true"] ul {
+    position: relative;
+    z-index: 1000;
+}
+
+.main-menu:target + .backdrop,
+.main-menu[aria-expanded="true"] + .backdrop {
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 998;
+    cursor: default;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+@supports (position: fixed) {
+    .main-menu,
+    .main-menu:target + .backdrop,
+    .main-menu[aria-expanded="true"] + .backdrop {
+        position: fixed;
+    }
+}
+
+
+/*Media Query*/
 @media screen and (min-width: 1025px) {
     .mobile-header {
         display: none;
@@ -234,7 +346,7 @@ button {
     }
 
     .banner .grid-container {
-        display: unset;
+        display: unset !important;
     }
 
     /*Testimonials*/
@@ -292,7 +404,7 @@ button {
     }
 
     .tab .username {
-        display: unset;
+        display: unset !important;
     }
 
     .tab-heading {
@@ -300,12 +412,12 @@ button {
     }
 
     .tab-item {
-        display: unset;
+        display: unset !important;
     }
 
     .tab-content {
         padding: 0;
-        border: none;
+        border: none !important;
     }
 
     .tab .submit {
@@ -332,6 +444,10 @@ button {
     .tab .tab-item label:before {
         content: "\f078";
     }
+
+    .tab__order-details .fa-chevron-down:before {
+        content: "\f054";
+    }
 }
 
 @media screen and (max-width: 320px) {
@@ -353,171 +469,19 @@ button {
         margin-left: 0.9rem !important;
         margin-right: 0.5rem !important;
     }
-}
 
+    .submit {
+        font-size: 1.3rem;
+    }
 
+    .tab-content {
+        padding: 0 !important;
+    }
 
-
-
-
-
-
-
-.menu-toggle {
-    display: inline-block;
-    padding: .75em 15px;
-    line-height: 1em;
-    font-size: 1em;
-    color: #333;
-}
-
-.menu-toggle:hover,
-.menu-toggle:focus {
-    color: #c00;
-}
-
-/*
-  Offscreen menu styling
-  - Default styles + mobile first
-*/
-.main-menu {
-    position: absolute;
-    display: none;
-    /*left: -200px; !* push off the screen to the left for future animation *!*/
-    top: 0;
-    height: 100%;
-    overflow-y: scroll;
-    overflow-x: visible;
-    transition: left 0.3s ease,
-    box-shadow 0.3s ease;
-    z-index: 999;
-    width: 80%;
-}
-
-.hamburger-list hr{
-    margin: 3rem 2rem;
-}
-
-.main-menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    padding-top: 5rem;
-    /* Hide shadow w/ -8px while 'closed' */
-    -webkit-box-shadow: -8px 0 8px rgba(0,0,0,.5);
-    -moz-box-shadow: -8px 0 8px rgba(0,0,0,.5);
-    box-shadow: -8px 0 8px rgba(0,0,0,.5);
-    min-height: 100%;
-    width: 100%;
-    background: rgba(255, 255, 255, 1);
-}
-
-.hamburger-link.active{
-    color: var(--primary);
-}
-
-/*
-  Generic style for ALL hamburger menu links
-*/
-.main-menu a {
-    display: block;
-    padding: .75em 15px;
-    text-decoration: none;
-    font-size: 1.6rem;
-    line-height: 2.3rem;
-    text-align: center;
-    text-transform: uppercase;
-    color: #9B9B9B;
-}
-
-
-/*
-  Close button positioning
-  - Other styles come from `.main-menu a`
-*/
-.main-menu .menu-close {
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-
-/*
-  =======================================
-  On small devices, allow it to toggle...
-  =======================================
-*/
-
-/*
-  Opening hamburger menu!
-  - Using `:target` for non-JavaScript
-  - `[aria-expanded]` will be used if/when JavaScript is added to improve interaction, though it's completely optional.
-*/
-.main-menu:target,
-.main-menu[aria-expanded="true"] {
-    display: block;
-    right: 0; /* slide from -200px to the left edge at 0 */
-    outline: none;
-    /* fix box-shadow so it shows now */
-    -moz-box-shadow: 3px 0 12px rgba(0,0,0,.25);
-    -webkit-box-shadow: 3px 0 12px rgba(0,0,0,.25);
-    box-shadow: 3px 0 12px rgba(0,0,0,.25);
-}
-
-/*
-  Close menu button
-  - Make sure it's on top!
-  - Basically, when `.main-menu` is the target of the click, get its child `.menu-close` link
-*/
-.main-menu:target .menu-close,
-.main-menu[aria-expanded="true"] .menu-close {
-    z-index: 1001;
-}
-
-/*
-  Hamburger menu list
-  - Make sure it's on top!
-  - Basically, when `.main-menu` is the target of the click, get its child `<ul>`
-*/
-.main-menu:target ul,
-.main-menu[aria-expanded="true"] ul {
-    position: relative;
-    z-index: 1000;
-}
-
-/*
-  Backdrop
-  - Show backdrop
-  - Basically, when `.main-menu` is the target of the click, get its sibling `.backdrop`
-  - Note: we could use `.main-menu:target:after`, but
- it wouldn't be clickable.
-*/
-.main-menu:target + .backdrop,
-.main-menu[aria-expanded="true"] + .backdrop{
-    position: absolute;
-    display: block;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 998;
-    cursor: default;
-    background: rgba(255, 255, 255, 0.3);
-}
-
-/*
-  ======================================================
-  If CSS supports `fixed`, like all good modern browsers
-  ======================================================
-*/
-@supports (position: fixed) {
-    /*
-      Allow backdrop to stay fixed and not "scroll"
-    */
-    .main-menu,
-    .main-menu:target + .backdrop,
-    .main-menu[aria-expanded="true"] + .backdrop {
-        position: fixed;
+    .tab__order-content .tab__sub-title, .tab__order-content .tab-title {
+        font-size: 0.9rem;
     }
 }
+
 
 

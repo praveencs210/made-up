@@ -1,10 +1,10 @@
 <template>
   <section class="mobile-header">
     <a href="#"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
-    <a href="#" class="mobile-header__container">
+    <router-link to="/my-profile" class="mobile-header__container">
       <img class="mobile-header__img active" src="../assets/img/category/category1.png">
       <figcaption class="mobile-header__title">For Me</figcaption>
-    </a>
+    </router-link>
     <a href="#" class="mobile-header__container">
       <img class="mobile-header__img" src="../assets/img/category/category2.png">
       <figcaption class="mobile-header__title">Jeans</figcaption>

@@ -1,11 +1,11 @@
 <template>
   <ul class="footer-list__logo">
     <li class="footer-item">
-      <a href="#">
+      <router-link to="/">
         <figure>
           <img class="footer-logo" src="./../../assets/img/logo.png">
         </figure>
-      </a>
+      </router-link>
     </li>
     <li class="footer-item"><a class="footer-link" href="#">Stay in touch with us</a></li>
     <li class="footer-item">

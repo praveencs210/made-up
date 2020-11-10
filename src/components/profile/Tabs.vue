@@ -57,7 +57,7 @@ export default {
   padding-bottom: 0.5rem;
 }
 
-article {
+.tab-content {
   padding: 2rem;
   border: 1px solid #333333;
 }
