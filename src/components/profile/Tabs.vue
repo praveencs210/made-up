@@ -109,7 +109,6 @@ export default {
 .tab__order-content {
   display: flex;
   margin: 2rem 0;
-  border-bottom: 1px solid #DDDDDD;
 }
 
 .profie-container {
