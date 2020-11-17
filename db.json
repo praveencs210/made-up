@@ -11,7 +11,10 @@
       "dispatched": "July 9 2020, 11 pm",
       "reached": "July 8 2020, 5.45 pm",
       "delivered": "Delivered Successfully",
-      "deliveryStatus": true
+      "deliveryStatus": true,
+      "receivedStatus": false,
+      "dispatchedStatus": false,
+      "reachedStatus": false
     },
     {
       "orderID": "Order #67543",
@@ -24,7 +27,10 @@
       "dispatched": "July 9 2020, 11 pm",
       "reached": "July 8 2020, 5.45 pm",
       "delivered": "Not yet delivered",
-      "deliveryStatus": false
+      "deliveryStatus": false,
+      "receivedStatus": false,
+      "dispatchedStatus": true,
+      "reachedStatus": false
     },
     {
       "orderID": "Order #34678",
@@ -37,7 +43,10 @@
       "dispatched": "July 9 2020, 11 pm",
       "reached": "July 8 2020, 5.45 pm",
       "delivered": "Not yet delivered",
-      "deliveryStatus": false
+      "deliveryStatus": false,
+      "receivedStatus": false,
+      "dispatchedStatus": false,
+      "reachedStatus": true
     },
     {
       "orderID": "Order #10965",
@@ -50,7 +59,10 @@
       "dispatched": "July 9 2020, 11 pm",
       "reached": "July 8 2020, 5.45 pm",
       "delivered": "Delivered Successfully",
-      "deliveryStatus": true
+      "deliveryStatus": true,
+      "receivedStatus": false,
+      "dispatchedStatus": false,
+      "reachedStatus": false
     },
     {
       "orderID": "Order #56876",
@@ -63,7 +75,10 @@
       "dispatched": "July 9 2020, 11 pm",
       "reached": "July 8 2020, 5.45 pm",
       "delivered": "Not yet delivered",
-      "deliveryStatus": false
+      "deliveryStatus": false,
+      "receivedStatus": true,
+      "dispatchedStatus": false,
+      "reachedStatus": false
     }
   ]
 }

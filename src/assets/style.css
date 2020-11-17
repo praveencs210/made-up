@@ -227,6 +227,24 @@ button {
     }
 }
 
+/*Custom Scrollbar*/
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 /*Media Query*/
 @media screen and (min-width: 1025px) {
     .mobile-header {
@@ -465,6 +483,12 @@ and (orientation: portrait) {
 
     .tab__order-details .fa-chevron-down:before {
         content: "\f054";
+    }
+
+    .tab_container .tab_container-label{
+        padding: 0 !important;
+        margin: 0 !important;
+        font-size: 1.3rem !important;
     }
 }
 

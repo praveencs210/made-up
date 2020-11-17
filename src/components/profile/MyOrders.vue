@@ -9,11 +9,11 @@
       <section class="tab_container">
         <!--Pending Orders-->
         <input id="tab1" type="radio" name="tabs" checked>
-        <label for="tab1">Pending Orders</label>
+        <label class="tab_container-label" for="tab1">Pending Orders</label>
 
         <!--Past Orders-->
         <input id="tab2" type="radio" name="tabs">
-        <label for="tab2">Past Orders</label>
+        <label class="tab_container-label" for="tab2">Past Orders</label>
 
         <!--Pending Orders Content-->
         <section id="content1" class="orders-tab-content">
@@ -45,7 +45,7 @@
             <section v-if="order.deliveryStatus==false" class="order-track">
               <hgroup class="order-track-step">
                 <p class="order-track-status">
-                  <span class="order-track-status-dot"></span>
+                  <span class="order-track-status-dot" :class="{'active':order.receivedStatus}"></span>
                   <span class="order-track-status-line"></span>
                 </p>
                 <div class="order-track-text">
@@ -55,7 +55,7 @@
               </hgroup>
               <hgroup class="order-track-step">
                 <p class="order-track-status">
-                  <span class="order-track-status-dot"></span>
+                  <span class="order-track-status-dot" :class="{'active':order.dispatchedStatus}"></span>
                   <span class="order-track-status-line"></span>
                 </p>
                 <div class="order-track-text">
@@ -65,7 +65,7 @@
               </hgroup>
               <hgroup class="order-track-step">
                 <p class="order-track-status">
-                  <span class="order-track-status-dot"></span>
+                  <span class="order-track-status-dot" :class="{'active':order.reachedStatus}"></span>
                   <span class="order-track-status-line"></span>
                 </p>
                 <div class="order-track-text">
@@ -75,7 +75,7 @@
               </hgroup>
               <hgroup class="order-track-step">
                 <p class="order-track-status">
-                  <span class="order-track-status-dot"></span>
+                  <span class="order-track-status-dot" :class="{'active':order.deliveryStatus}"></span>
                   <span class="order-track-status-line"></span>
                 </p>
                 <div class="order-track-text">
@@ -116,7 +116,7 @@
             <section v-if="order.deliveryStatus==true" class="order-track">
               <hgroup class="order-track-step">
                 <p class="order-track-status">
-                  <span class="order-track-status-dot"></span>
+                  <span class="order-track-status-dot" :class="{'active':order.receivedStatus}"></span>
                   <span class="order-track-status-line"></span>
                 </p>
                 <div class="order-track-text">
@@ -126,7 +126,7 @@
               </hgroup>
               <hgroup class="order-track-step">
                 <p class="order-track-status">
-                  <span class="order-track-status-dot"></span>
+                  <span class="order-track-status-dot"  :class="{'active':order.dispatchedStatus}"></span>
                   <span class="order-track-status-line"></span>
                 </p>
                 <div class="order-track-text">
@@ -136,7 +136,7 @@
               </hgroup>
               <hgroup class="order-track-step">
                 <p class="order-track-status">
-                  <span class="order-track-status-dot"></span>
+                  <span class="order-track-status-dot" :class="{'active':order.reachedStatus}"></span>
                   <span class="order-track-status-line"></span>
                 </p>
                 <div class="order-track-text">
@@ -146,7 +146,7 @@
               </hgroup>
               <hgroup class="order-track-step">
                 <p class="order-track-status">
-                  <span class="order-track-status-dot"></span>
+                  <span class="order-track-status-dot" :class="{'active':order.deliveryStatus}"></span>
                   <span class="order-track-status-line"></span>
                 </p>
                 <div class="order-track-text">
@@ -168,7 +168,7 @@ export default {
   name: "MyOrders",
   data() {
     return {
-      orders: []
+      orders: [],
     }
   },
   methods: {
@@ -197,7 +197,7 @@ export default {
 
 .tab_container label {
   font-weight: 500 !important;
-  font-size: 2.4rem !important;
+  font-size: 2.4rem;
   line-height: 3.5rem;
   color: #777777;
   margin: 0;
@@ -220,15 +220,17 @@ input, .orders-tab-content {
   border-bottom: none !important;
 }
 
-.tab_container label {
+.tab_container .tab_container-label {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 2.4rem;
+  line-height: 3.5rem;
   display: block;
   float: left;
   color: #757575;
   cursor: pointer;
   text-decoration: none;
   text-align: center;
+  padding: 1rem 0;
 }
 
 #tab1:checked ~ #content1,
@@ -296,6 +298,23 @@ details {
   border: 1px solid #DDDDDD;
 }
 
+.order-track-status-dot.active {
+  background: #333;
+}
+
+.order-track-status-dot.active:after {
+  content: '';
+  display: inline-block;
+  transform: rotate(45deg);
+  height: 10px;
+  width: 4px;
+  border-bottom: 3px solid white;
+  border-right: 3px solid white;
+  position: absolute;
+  left: 8px;
+  top: 4px;
+}
+
 .order-track-status-line {
   display: block;
   margin: 0 auto;
@@ -320,8 +339,11 @@ details {
   color: #777777;
 }
 
-details:empty{
+details:empty {
   display: none;
 }
 
+.active {
+  background: red;
+}
 </style>
