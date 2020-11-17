@@ -10,6 +10,7 @@
         <!--Pending Orders-->
         <input id="tab1" type="radio" name="tabs" checked>
         <label for="tab1">Pending Orders</label>
+
         <!--Past Orders-->
         <input id="tab2" type="radio" name="tabs">
         <label for="tab2">Past Orders</label>
@@ -17,97 +18,143 @@
         <!--Pending Orders Content-->
         <section id="content1" class="orders-tab-content">
           <!--Orders 1-->
-          <details>
-            <summary>
+          <details v-for="order in orders" v-bind:key="order">
+            <summary v-if="order.deliveryStatus==false">
               <section class="tab__order-content">
                 <figure>
-                  <img class="tabs__order-img" src="../../assets/img/orders.png">
+                  <img class="tabs__order-img" :src="order.productImg">
                 </figure>
                 <section class="tab-order">
                   <hgroup class="tab__order-details">
-                    <p class="tab__sub-title">Order #12345678</p>
-                    <p class="tab__sub-title">Credit Card Payment</p>
+                    <p class="tab__sub-title">{{ order.orderID }}</p>
+                    <p class="tab__sub-title">{{ order.payment }}</p>
                   </hgroup>
 
                   <hgroup class="tab__order-details">
-                    <h1 class="tab-title">Madeup White Cotton Blend <br/> Checkered Slim Fit Shirt</h1>
-                    <h1 class="tab-title">Rs 1,899</h1>
+                    <h1 class="tab-title">{{ order.productName }}</h1>
+                    <h1 class="tab-title">{{ order.price }}</h1>
                   </hgroup>
 
                   <hgroup class="tab__order-details">
-                    <p class="tab__sub-title">Express Delivery by Sat, Aug 30</p>
+                    <p class="tab__sub-title">{{ order.deliveryDate }}</p>
                     <i class="fa fa-chevron-down" aria-hidden="true"></i>
                   </hgroup>
                 </section>
               </section>
             </summary>
-            <section class="order-track">
+            <section v-if="order.deliveryStatus==false" class="order-track">
               <hgroup class="order-track-step">
-                <div class="order-track-status">
+                <p class="order-track-status">
                   <span class="order-track-status-dot"></span>
                   <span class="order-track-status-line"></span>
-                </div>
+                </p>
                 <div class="order-track-text">
                   <p class="order-track-text-stat">Order Recieved</p>
-                  <p class="order-track-text-sub">July 8 2020, 5.45 pm</p>
+                  <p class="order-track-text-sub">{{ order.received }}</p>
                 </div>
               </hgroup>
               <hgroup class="order-track-step">
-                <div class="order-track-status">
+                <p class="order-track-status">
                   <span class="order-track-status-dot"></span>
                   <span class="order-track-status-line"></span>
-                </div>
+                </p>
                 <div class="order-track-text">
                   <p class="order-track-text-stat"> Order Dispactched </p>
-                  <p class="order-track-text-sub">July 9 2020, 11 pm </p>
+                  <p class="order-track-text-sub">{{ order.dispatched }}</p>
                 </div>
               </hgroup>
               <hgroup class="order-track-step">
-                <div class="order-track-status">
+                <p class="order-track-status">
                   <span class="order-track-status-dot"></span>
                   <span class="order-track-status-line"></span>
-                </div>
+                </p>
                 <div class="order-track-text">
                   <p class="order-track-text-stat"> Order Reached </p>
-                  <p class="order-track-text-sub">July 8 2020, 5.45 pm</p>
+                  <p class="order-track-text-sub">{{ order.reached }}</p>
                 </div>
               </hgroup>
               <hgroup class="order-track-step">
-                <div class="order-track-status">
+                <p class="order-track-status">
                   <span class="order-track-status-dot"></span>
                   <span class="order-track-status-line"></span>
-                </div>
+                </p>
                 <div class="order-track-text">
-                  <p class="order-track-text-stat"> Delivered Successfully </p>
+                  <p class="order-track-text-stat"> {{ order.delivered }} </p>
                 </div>
               </hgroup>
             </section>
           </details>
         </section>
+
         <!--Past Orders Content-->
         <section id="content2" class="orders-tab-content">
           <!--Orders 2-->
-          <section class="tab__order-content">
-            <figure>
-              <img class="tabs__order-img" src="../../assets/img/orders.png">
-            </figure>
-            <section class="tab-order">
-              <hgroup class="tab__order-details">
-                <p class="tab__sub-title">Order #12345678</p>
-                <p class="tab__sub-title">Credit Card Payment</p>
-              </hgroup>
+          <details v-for="order in orders" v-bind:key="order">
+            <summary v-if="order.deliveryStatus==true">
+              <section class="tab__order-content">
+                <figure>
+                  <img class="tabs__order-img" :src="order.productImg">
+                </figure>
+                <section class="tab-order">
+                  <hgroup class="tab__order-details">
+                    <p class="tab__sub-title">{{ order.orderID }}</p>
+                    <p class="tab__sub-title">{{ order.payment }}</p>
+                  </hgroup>
 
-              <hgroup class="tab__order-details">
-                <h1 class="tab-title">Madeup White Cotton Blend <br/> Checkered Slim Fit Shirt</h1>
-                <h1 class="tab-title">Rs 1,899</h1>
-              </hgroup>
+                  <hgroup class="tab__order-details">
+                    <h1 class="tab-title">{{ order.productName }}</h1>
+                    <h1 class="tab-title">{{ order.price }}</h1>
+                  </hgroup>
 
-              <hgroup class="tab__order-details">
-                <p class="tab__sub-title">Express Delivery by Sat, Aug 30</p>
-                <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  <hgroup class="tab__order-details">
+                    <p class="tab__sub-title">{{ order.deliveryDate }}</p>
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                  </hgroup>
+                </section>
+              </section>
+            </summary>
+            <section v-if="order.deliveryStatus==true" class="order-track">
+              <hgroup class="order-track-step">
+                <p class="order-track-status">
+                  <span class="order-track-status-dot"></span>
+                  <span class="order-track-status-line"></span>
+                </p>
+                <div class="order-track-text">
+                  <p class="order-track-text-stat">Order Recieved</p>
+                  <p class="order-track-text-sub">{{ order.received }}</p>
+                </div>
+              </hgroup>
+              <hgroup class="order-track-step">
+                <p class="order-track-status">
+                  <span class="order-track-status-dot"></span>
+                  <span class="order-track-status-line"></span>
+                </p>
+                <div class="order-track-text">
+                  <p class="order-track-text-stat"> Order Dispactched </p>
+                  <p class="order-track-text-sub">{{ order.dispatched }}</p>
+                </div>
+              </hgroup>
+              <hgroup class="order-track-step">
+                <p class="order-track-status">
+                  <span class="order-track-status-dot"></span>
+                  <span class="order-track-status-line"></span>
+                </p>
+                <div class="order-track-text">
+                  <p class="order-track-text-stat"> Order Reached </p>
+                  <p class="order-track-text-sub">{{ order.reached }}</p>
+                </div>
+              </hgroup>
+              <hgroup class="order-track-step">
+                <p class="order-track-status">
+                  <span class="order-track-status-dot"></span>
+                  <span class="order-track-status-line"></span>
+                </p>
+                <div class="order-track-text">
+                  <p class="order-track-text-stat"> {{ order.delivered }} </p>
+                </div>
               </hgroup>
             </section>
-          </section>
+          </details>
         </section>
       </section>
     </article>
@@ -115,8 +162,24 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-  name: "MyOrders"
+  name: "MyOrders",
+  data() {
+    return {
+      orders: []
+    }
+  },
+  methods: {
+    fetchPosts() {
+      axios.get("http://localhost:3000/orders").then(response => (this.orders = response.data));
+      console.log("Hello")
+    }
+  },
+  mounted() {
+    this.fetchPosts();
+  }
 }
 </script>
 
@@ -255,6 +318,10 @@ details {
   font-size: 1.3rem;
   line-height: 2.3rem;
   color: #777777;
+}
+
+details:empty{
+  display: none;
 }
 
 </style>
