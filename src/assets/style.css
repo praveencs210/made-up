@@ -360,6 +360,11 @@ and (orientation: portrait) {
     .accordion {
         display: none !important;
     }
+
+    .hide-md-price{
+        display: none;
+        margin-left: 0.5rem;
+    }
 }
 
 /*Mobile*/
@@ -490,6 +495,22 @@ and (orientation: portrait) {
         margin: 0 !important;
         font-size: 1.3rem !important;
     }
+
+    .orders-tab-content{
+        padding: 0 !important;
+    }
+
+    .order-track-text-stat{
+        font-size: 1.3rem;
+    }
+
+    .tabs__order-img{
+        margin: 0 !important;
+    }
+
+    .hide-sm-price{
+        display: none;
+    }
 }
 
 @media screen and (max-width: 320px) {
@@ -522,6 +543,10 @@ and (orientation: portrait) {
 
     .tab__order-content .tab__sub-title, .tab__order-content .tab-title {
         font-size: 0.9rem;
+    }
+
+    .order-track-text-stat{
+        font-size: 1.3rem !important;
     }
 }
 

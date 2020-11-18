@@ -27,12 +27,12 @@
                 <section class="tab-order">
                   <hgroup class="tab__order-details">
                     <p class="tab__sub-title">{{ order.orderID }}</p>
-                    <p class="tab__sub-title">{{ order.payment }}</p>
+                    <p class="tab__sub-title">{{ order.payment }} <span class="hide-md-price">{{ order.price }}</span></p>
                   </hgroup>
 
                   <hgroup class="tab__order-details">
                     <h1 class="tab-title">{{ order.productName }}</h1>
-                    <h1 class="tab-title">{{ order.price }}</h1>
+                    <h1 class="tab-title hide-sm-price">{{ order.price }}</h1>
                   </hgroup>
 
                   <hgroup class="tab__order-details">
