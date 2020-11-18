@@ -126,7 +126,7 @@
               </hgroup>
               <hgroup class="order-track-step">
                 <p class="order-track-status">
-                  <span class="order-track-status-dot"  :class="{'active':order.dispatchedStatus}"></span>
+                  <span class="order-track-status-dot" :class="{'active':order.dispatchedStatus}"></span>
                   <span class="order-track-status-line"></span>
                 </p>
                 <div class="order-track-text">
@@ -174,7 +174,6 @@ export default {
   methods: {
     fetchPosts() {
       axios.get("http://localhost:3000/orders").then(response => (this.orders = response.data));
-      console.log("Hello")
     }
   },
   mounted() {
@@ -341,9 +340,5 @@ details {
 
 details:empty {
   display: none;
-}
-
-.active {
-  background: red;
 }
 </style>
