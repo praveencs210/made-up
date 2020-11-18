@@ -501,7 +501,7 @@ and (orientation: portrait) {
     }
 
     .order-track-text-stat{
-        font-size: 1.3rem;
+        font-size: 1.3rem !important;
     }
 
     .tabs__order-img{
